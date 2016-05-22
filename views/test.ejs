@@ -11,8 +11,8 @@
 
         $.ajax({
             type: "get",
-            url: 'tempapi/addinfo',
-            data: {post:1, temp:20},
+            url: 'tempapi/getinfo',
+            data: {post:122, date:'2015-02-11'},
             dataType: "json",
             success : function(result) {
                 console.log(result);
