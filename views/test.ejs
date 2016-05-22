@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script>
+    test();
+    function test() {
+
+        $.ajax({
+            type: "get",
+            url: 'tempapi/addinfo',
+            data: {post:1, temp:20},
+            dataType: "json",
+            success : function(result) {
+                console.log(result);
+            },
+            error : function(){}
+        });
+    }
+</script>
+</body>
+</html>
