@@ -10,6 +10,38 @@ var TempInfo = AV.Object.extend('TempInfo');
 // 详见： https://leancloud.cn/docs/js_guide.html#对象
 var Todo = AV.Object.extend('Todo');
 
+router.get('/getpost', function(req, res, next) {
+    var query = new AV.Query('TempInfo');
+    query.select('post');
+    query.find().then(function (resultes) {
+        console.log(resultes);
+        var data = [];
+        var index = 0;
+        for (var i = 0; i < resultes.length; i++) {
+            var flag = 0;
+            for (var j = 0; j < data.length; j++) {
+                if (data[j] == resultes[i].get('post')) {
+                    flag++;
+                }
+            }
+            if (flag == 0) {
+                data[index] = resultes[i].get('post');
+                index++;
+            }
+            else {
+                flag = 0;
+            }
+        }
+        console.log(data);
+        var result = {
+            code : 200,
+            data : data,
+            message : '操作成功'
+        }
+        res.send(result);
+    });
+});
+
 router.get('/addinfo', function(req, res, next) {
     var post = req.query.post;
     var temp = req.query.temp;
