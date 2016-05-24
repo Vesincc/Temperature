@@ -45,6 +45,22 @@ router.get('/getpost', function(req, res, next) {
 router.get('/addinfo', function(req, res, next) {
     var post = req.query.post;
     var temp = req.query.temp;
+    if (temp == '' || temp == null) {
+        var result = {
+            code : 400,
+            message : '缺少参数temp'
+        }
+        res.send(result);
+        return;
+    }
+    if (post == '' || post == null) {
+        var result = {
+            code : 400,
+            message : '缺少参数post'
+        }
+        res.send(result);
+        return;
+    }
     var tempInfo = new TempInfo();
     tempInfo.set('post', post);
     tempInfo.set('temp', temp);
