@@ -47,7 +47,7 @@ app.use(function(req, res, next) {
   d.run(next);
 });
 
-app.get('/', function(req, res) {
+app.get('/index', function(req, res) {
   res.render('index', { currentTime: new Date() });
 });
 app.get('/test', function (req, res) {
