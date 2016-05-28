@@ -1,0 +1,23 @@
+li {
+	list-style: none;
+	
+}
+
+fieldset {
+	width: 90%;
+	border: 0;
+}
+
+textarea {
+	width: 90%;
+	border-radius: 5px;
+}
+
+.info {
+	width: 90%;
+	border: 1px solid red;
+}
+img{width:100px;height: 100px; color:#9D9D9D;}
+.return{float: right;}
+a:hover{text-decoration: none;}
+#infor{margin: 10px 10px;}

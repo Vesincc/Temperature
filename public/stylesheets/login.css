@@ -1,0 +1,18 @@
+
+
+body
+{
+    /*background-image:url(http://img15.3lian.com/2015/f2/128/d/126.jpg);*/
+    /*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img15.3lian.com/2015/f2/128/d/126.jpg',sizingMethod='scale');*/ 
+    background-repeat:no-repeat;
+    background-position: center 100%;
+    /*background-attachment: fixed;*/
+    
+}
+.login{
+	width:300px;
+	margin:10% auto 0;
+    
+}
+span{color: red;}
+#inputSubmit{width: 100%;}

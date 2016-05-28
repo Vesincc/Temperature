@@ -1,0 +1,17 @@
+.bj{background-color: darkgray;}
+li{list-style: none;display: inline;}
+.del{float: right;margin-left: 20px;}
+.edit{float: right;}
+.return{float: right;}
+/*
+@media (min-width: @screen-sm-min) { }
+@media screen and(min-width: 960px) { 
+	}
+}
+*/
+@media screen and (max-width:719px) {
+		img{width:120px;height: 120px;}
+	}
+
+@media screen and (min-width:720px){img{width: 100px;height: 100px;}}
+	

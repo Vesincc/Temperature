@@ -1,0 +1,69 @@
+﻿body {
+    font-family:"微软雅黑";
+}
+h2
+{
+    margin-top:30px;
+    border-bottom:1px solid #ccc;
+    padding-bottom:30px;
+}
+.yonghudenglu
+{
+    list-style:none;
+    margin-top:10px;
+    margin-left:50px;
+    float:left;
+}
+.yonghudenglu select
+{
+    width:100px;
+    height:30px;
+    text-align:center;
+    margin-left:100px;
+}
+.btn
+{
+    margin-left:20px;
+    float:left;
+}
+.salary,.attend,.att,.department
+{
+    width:800px;
+    height:100px;
+    margin-top:80px;
+    border:1px solid #ccc;
+}
+.salary th,.salary td,.attend th,.attend td,.att th,.att td,.department th,.department td
+{
+    text-align:center;
+}
+.btn_att
+{
+    position:relative;
+    left:60px;
+}
+.btn_department
+{
+    position:relative;
+    left:40px;
+}
+.btn_bottom
+{
+    position:absolute;
+    right:400px;
+    
+}
+.department_div tr,.attend_div tr,.att_div tr
+{
+    height:40px;
+}
+.department_div
+{
+    position:relative;
+    bottom:50px;
+}
+.att_div
+{
+    position:relative;
+    bottom:50px;
+}

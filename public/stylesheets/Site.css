@@ -1,0 +1,39 @@
+﻿*
+{
+    padding:0;
+    margin:0;
+    font-family:"微软雅黑"
+
+}
+.main-left
+{
+    width:19%;
+    position:fixed;top:50px;
+    background-color:white;
+}
+.main-left ul
+{
+    width:100%;
+}
+.main-left li
+{
+    height:50px;
+    line-height:50px;
+    text-align:center;
+}
+.main-left li a
+{
+    display:block;
+    color:black;
+    text-decoration:none;
+}
+
+.main-left li a:hover,.main-left li a:active
+{
+    background:gray;
+    color:white;
+}
+.main-right 
+{
+    width:81%;position:absolute;top:50px;left:19%;
+}
