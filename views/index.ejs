@@ -247,7 +247,7 @@ function getData(date)
 {
   $.ajax({
             type: "get",
-            url: 'tempapi/getinfo?post=1&date='+date,
+            url: 'tempapi/getinfo?post=luo&date='+date,
             dataType: "json",
             success : function(result) {
                 var size=result.data.length;
@@ -257,7 +257,8 @@ function getData(date)
                   var x=result.data[i].createdAt;
                   var y=parseFloat(result.data[i].temp);
                   series.push([x,y]);
-                }             
+                }     
+                console.log(result);        
                 showChart(series);
                 $(".highcharts-subtitle").text(date); 
             },
