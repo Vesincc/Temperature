@@ -88,6 +88,7 @@ router.get('/getinfo', function(req, res, next) {
         query.lessThan('updatedAt', new Date(date + ' 23:59:59'));
     }
     query.limit(1000);
+    query.addAscending('updatedAt');
     query.find().then(function (resultes) {
         console.log();
         for (var i = 0 ; i < resultes.length; i++) {
