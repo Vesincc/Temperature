@@ -252,7 +252,7 @@ Highcharts.theme = {
 Highcharts.setOptions(Highcharts.theme);
 
 function getData(date)
-{
+{$('.select').val()
     console.log($('.select').val());
   $.ajax({
             type: "get",
@@ -274,7 +274,7 @@ function getData(date)
             error : function(){
             } 
         });
-    getPort();
+    //getPort();
 }
 
 getPort();
