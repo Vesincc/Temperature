@@ -16,13 +16,21 @@
       margin: 0;
       padding: 0;
     }
-   
+    .select {
+        margin-bottom: 5px;
+    }
   </style>
   
 
   <body>   
 
-
+<div>
+    <span>选择端口:</span>
+    <select class="select">
+        <!--<option value="">123</option>-->
+        <!--<option value="">123</option>-->
+    </select>
+</div>
 <div id="show"></div>
 <div id="container" style="min-width: 310px; height: 500px; margin: 0 auto"></div>
 
@@ -245,9 +253,10 @@ Highcharts.setOptions(Highcharts.theme);
 
 function getData(date)
 {
+    console.log($('.select').val());
   $.ajax({
             type: "get",
-            url: 'tempapi/getinfo?post=luo&date='+date,
+            url: 'tempapi/getinfo?post='+$('.select').val()+'&date='+date,
             dataType: "json",
             success : function(result) {
                 var size=result.data.length;
@@ -265,6 +274,30 @@ function getData(date)
             error : function(){
             } 
         });
+    getPort();
+}
+
+getPort();
+
+function getPort() {
+    $.ajax({
+        type: "get",
+        url: 'tempapi/getpost',
+        data: {},
+        dataType: "json",
+        success : function(result) {
+            console.log(result);
+            if (result.code == 200 && result.data != null) {
+                var list = '';
+                for (var i =0 ; i < result.data.length; i++) {
+                    list += '<option value="'+result.data[i]+'">'+result.data[i]+'</option>';
+                }
+                $('.select').empty();
+                $('.select').append(list);
+            }
+        },
+        error : function(){}
+    });
 }
 
 function showChart(datainfo) {
