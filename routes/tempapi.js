@@ -84,12 +84,12 @@ router.get('/addinfo', function(req, res, next) {
     query.find().then(function (list) {
         var flag = 0;
         for (var i = 0; i < list.length; i++) {
-            if (list.get('portName') == post) {
-                flag++
+            if (list[i].get('portName') == post) {
+                flag++;
             }
         }
         if (flag == 0) {
-            var port = Port();
+            var port = new Port();
             port.set('portName', post);
             port.save().then(function (port) {
                 var tempInfo = new TempInfo();
