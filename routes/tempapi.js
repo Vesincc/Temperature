@@ -121,6 +121,55 @@ router.get('/addinfo', function(req, res, next) {
 
 });
 
+router.post('/getnewinfo', function(req, res, next) {
+    var dataNow = req.body.date_limit == null ? null : req.body.date_limit;
+    var date = req.body.date == null ? null : req.body.date;
+    var post = req.body.post == null ? null : req.body.post;
+
+    console.log(dataNow);
+    console.log(date);
+    console.log(post);
+
+    if (dataNow == null || date == null || post == null) {
+        var data = {
+            code : 400,
+            message : '缺少参数'
+        }
+        res.send(data);
+    }
+    else {
+        var query = new AV.Query('TempInfo');
+        query.addDescending('updatedAt');
+        if (post != null) {
+            query.equalTo('post', post);
+        }
+        if (date != null) {
+            console.log(date);
+            query.greaterThan('updatedAt', new Date(dataNow));
+            query.lessThan('updatedAt', new Date(date + ' 23:59:59'));
+        }
+        query.limit(1000);
+        query.addAscending('updatedAt');
+        query.find().then(function (resultes) {
+            //console.log();
+            for (var i = 0 ; i < resultes.length; i++) {
+                resultes[i].updatedAt = moment(resultes[i].updatedAt).format("YYYY-MM-DD HH:mm:ss");
+                resultes[i].createdAt = moment(resultes[i].createdAt).format("YYYY-MM-DD HH:mm:ss");
+            }
+            if (resultes[0].updatedAt == dataNow) {
+                resultes.splice(0, 1);
+            }
+            var data = {
+                code : 200,
+                data : resultes,
+                message : '操作成功'
+            }
+            res.send(data);
+        });
+    }
+
+});
+
 router.get('/getinfo', function(req, res, next) {
     var date = req.query.date == null ? null : req.query.date;
     var post = req.query.post == null ? null : req.query.post;

@@ -9,16 +9,16 @@
     test();
     function test() {
 
-        $.ajax({
-            type: "get",
-            url: 'tempapi/getpost',
-            data: {},
-            dataType: "json",
-            success : function(result) {
-                console.log(result);
-            },
-            error : function(){}
-        });
+//        $.ajax({
+//            type: "get",
+//            url: 'tempapi/getpost',
+//            data: {},
+//            dataType: "json",
+//            success : function(result) {
+//                console.log(result);
+//            },
+//            error : function(){}
+//        });
 //        $.ajax({
 //            type: "get",
 //            url: 'tempapi/addinfo',
@@ -29,6 +29,16 @@
 //            },
 //            error : function(){}
 //        });
+        $.ajax({
+            type: "post",
+            url: 'tempapi/getnewinfo',
+            data: {date_limit:'2016-06-06 17:24:25', date:'2016-06-06', post:'210'},
+            dataType: "json",
+            success : function(result) {
+                console.log(result);
+            },
+            error : function(){}
+        });
     }
 </script>
 </body>
